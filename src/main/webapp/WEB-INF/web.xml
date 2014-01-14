@@ -1,0 +1,59 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+       
+     <!-- 指定上下文配置文件 -->  
+     <context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>  
+                 classpath:applicationContext.xml  
+        </param-value>  
+    </context-param>  
+      
+    <!-- spring监听器，监听springMvc环境 -->  
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>  
+      
+    <!-- 压入项目路径 -->  
+    <listener>  
+       <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>  
+    </listener>  
+    
+     <!-- springMvc前置总控制器，在分发其它的控制器前都要经过这个总控制器 -->  
+     <servlet>  
+        <servlet-name>spring</servlet-name>  
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+        <init-param>  
+            <param-name>contextConfigLocation</param-name>  
+            <param-value>/WEB-INF/spring-servlet.xml</param-value>  
+        </init-param>  
+        <!-- 启动顺序 -->  
+        <load-on-startup>1</load-on-startup>  
+    </servlet>  
+    
+    <filter>  
+	    <filter-name>encodingFilter</filter-name>  
+	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+	    <init-param>  
+	        <param-name>encoding</param-name>  
+	        <param-value>gb2312</param-value>  
+	    </init-param>  
+	  </filter>    
+    <servlet-mapping>  
+        <servlet-name>spring</servlet-name>  
+        <url-pattern>/</url-pattern>  
+        <!--   
+        <url-pattern>/</url-pattern>  会匹配到/login这样的路径型url，不会匹配到模式为*.jsp这样的后缀型url  
+        <url-pattern>/*</url-pattern> 会匹配所有url：路径型的和后缀型的url(包括/login,*.jsp,*.js和*.html等)  
+         -->  
+    </servlet-mapping>  
+    <!-- 欢迎页面 -->  
+    <welcome-file-list>  
+        <welcome-file>index.jsp</welcome-file>  
+    </welcome-file-list> 
+    
+</web-app>
