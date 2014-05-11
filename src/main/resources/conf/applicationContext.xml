@@ -20,7 +20,7 @@
         <property name="locations">  
             <list>  
                 <!-- 标准配置 -->  
-                <value>classpath:/jdbc.properties</value>  
+                <value>classpath:conf/jdbc.properties</value>  
             </list>  
         </property>  
     </bean>  
@@ -42,7 +42,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <!-- configLocation：用于指定Mybatis的配置文件位置 -->  
-        <property name="configLocation" value="classpath:mybatis-config.xml" />  
+        <property name="configLocation" value="classpath:conf/mybatis-config.xml" />  
     </bean>  
 
     <context:annotation-config />  
@@ -57,7 +57,7 @@
     多个基包之间可以使用逗号或者分号进行分隔  
      -->  
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <property name="basePackage" value="com.mapper,com.dao" />  
+        <property name="basePackage" value="cn.hunk.dao" />  <!-- NND,这个地方注入失败，找了好长时间才找到 -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />  
     </bean>  
   

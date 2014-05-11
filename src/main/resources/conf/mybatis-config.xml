@@ -8,10 +8,6 @@
     This file was generated on Sat Jan 11 22:44:00 CST 2014.
   -->
   <mappers >
-    <mapper resource="com/dao/jibenxinxiMapper.xml" />
-    <mapper resource="com/dao/lianzubutieMapper.xml" />
-    <mapper resource="com/dao/minzuMapper.xml" />
-    <mapper resource="com/dao/xingzhengquyuMapper.xml" />
-    <mapper resource="com/dao/yinhangleibieMapper.xml" />
+    <mapper resource="mapper/UserMapper.xml" />
   </mappers>
 </configuration>
