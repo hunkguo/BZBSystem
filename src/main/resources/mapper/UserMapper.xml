@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hunk.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="cn.hunk.model.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="del" property="del" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userName, password, name, del
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.hunk.model.User" >
+    insert into user (id, userName, password, 
+      name, del)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{del,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.hunk.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+        del,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+        0,
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hunk.model.User" >
+    update user
+    <set >
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null" >
+        del = #{del,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hunk.model.User" >
+    update user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      del = #{del,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    
+  <select id="loadUser" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  
+    
+  <select id="selectAllUser" resultMap="BaseResultMap"  >
+    select * 
+    from user
+    where del = '0' 
+  </select>
+  
+  
+  
+     <select id="queryUserCount" parameterType="Map" resultType="int">
+        select COUNT(*) from User 
+    </select>
+    
+    
+    <select id="queryUser" parameterType="Map" resultType="cn.hunk.model.User">
+        select * from User where del = '0'          
+        <if test="username != null">
+        		AND username like '%#{username}%'
+        </if>      
+        LIMIT #{start},#{limit}
+    </select>
+    
+    <delete id="del" parameterType="cn.hunk.model.User">
+         update User set del = 1 where id=#{id}
+    </delete>
+    
+    <update id="edit" parameterType="cn.hunk.model.User">
+        update User
+        <set>
+			 <if test="password  != null  and !password.equals('')">
+			 	password = #{password},
+			 </if>
+			 <if test="name  != null  and !name.equals('')">
+			 	name = #{name},
+			 </if>          
+        </set>
+        where id=#{id}
+    </update>
+    
+    
+</mapper>

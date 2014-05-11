@@ -1,0 +1,76 @@
+<#import "spring.ftl" as s />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>登录</title>
+<link href="../css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/dwz/js/jquery-1.7.2.js"></script>
+<script >
+	$(document).ready(function(){
+		var flag = true;//判断是否是第一次点击登录框
+		$("#username").click(function(){
+			if(flag)
+			{
+				$("#username").val("");//第一次点击时清除内容
+				$("#username").css("color","black");//修改字体颜色
+				flag = false;
+			}
+			});
+		var SubmitOrHidden = function(evt){
+		    evt = window.event || evt;
+		    if(evt.keyCode==13){//如果取到的键值是回车
+		          //do something		
+		          validAdd();
+		     }else{
+		        //其他键  dosomething
+		    }
+		};
+	window.document.onkeydown=SubmitOrHidden;//当有键按下时执行函数
+	});
+	function validAdd(){
+		if($("#username").val() == null || $("#username").val() == ""){
+			alert("请输入用户名");
+			return false;
+		}else
+		if($("#password").val() == null || $("#password").val() == ""){
+			alert("请输入用户名");
+			return false;
+		}else{
+			$("#loginForm").submit();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div class="login">
+		<div class="login_content">
+			<form action="./login" method="post" modelAttribute="user" 
+				id="loginForm" >
+				<dl>
+					<dd>用户名：</dd>
+					<dd>
+						<input class="kuang_1" name="username" id="username"  
+							maxlength="15" size="28" type="text" value="请输入用户名" style="color:gray;" />
+					</dd>
+					<dd>密&nbsp;&nbsp;码：</dd>
+					<dd>
+						<input class="kuang_2" name="password" id="password" size="28"
+							maxlength="15" type="password" />
+					</dd>
+					<dt>
+						<a href="javascript:;" onclick="validAdd();"><img
+							src="../images/btn.jpg" /> </a>
+					</dt>
+					<dt>
+							<span style="color: red;">${loginMsg}</span>
+					</dt>
+				</dl>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>
