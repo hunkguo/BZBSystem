@@ -1,0 +1,331 @@
+<html>
+<head>
+<title>HUAWEI</title>
+<style type="text/css">
+.my-uploadify-button {
+	background: none;
+	border: none;
+	text-shadow: none;
+	border-radius: 0;
+}
+
+.uploadify:hover .my-uploadify-button {
+	background: none;
+	border: none;
+}
+
+.fileQueue {
+	width: 400px;
+	height: 150px;
+	overflow: auto;
+	border: 1px solid #E5E5E5;
+	margin-bottom: 10px;
+}
+#head_span{
+	display: none;
+}
+#ppt_span{
+	display: none;
+}
+#video_span{
+	display: none;
+}
+#cover_span{
+	display: none;
+}
+#doc_file{
+	display: none;
+}
+#video_file{
+	display: none;
+}
+#ppt_file{
+	display: none;
+}
+</style>
+<script type="text/javascript">
+ function navTabAjaxDone(json){
+       	 DWZ.ajaxDone(json);
+     	 if (json.statusCode == DWZ.statusCode.ok){
+            if ("queryData"){ //把指定navTab页面标记为需要“重新载入”。注意navTabId不能是当前navTab页面的
+                  navTab.reloadFlag("page_list");
+            } else { //重新载入当前navTab页面
+                  navTabPageBreak();
+            }
+            if ("closeCurrent" == json.callbackType) {
+                  setTimeout(function(){navTab.closeCurrentTab();}, 100);
+            } else if ("forward" == json.callbackType) {
+                  navTab.reload(json.forwardUrl);
+            }
+      }
+}
+function saveForm(obj){
+	return validateCallback(obj, navTabAjaxDone);
+}
+
+</script>
+</head>
+<body>
+	<div class="pageContent">
+		<form method="post" action="./yusuanjichushuju/add"
+			class="pageForm required-validate"
+			onsubmit="return saveForm(this);">
+			<div class="pageFormContent nowrap" layoutH="56">
+			
+			<p>
+				<label>姓名：</label>
+				<input name="name" type="text" size="20" class="required" />
+			</p>
+			
+			<p>
+				<label>住址：</label>
+				<input name="address" type="text" size="20" class="required"/>
+			</p>
+			
+			<p>
+				<label>户数：</label>
+				<input name="huShu" type="text" class="number" size="15" value="0" />
+			</p>
+			
+			<p>
+				<label>人口：</label>
+				<input name="renKou" type="text"  class="number" size="15" value="0" />
+			</p>
+			<fieldset>
+				<legend>原住房情况</legend>
+				<p>
+					<label>宅基地面积（㎡）：</label>
+					<input name="zhaiDiJiMianJi" type="text"  class="number" size="15" value="0" />
+				</p>
+					<p>
+						<label>一二层已建：</label>
+						<input name="yiErCengYiJian" type="text" class="number"  size="15" value="0" />
+					</p>
+					
+					<p>
+						<label>一二层未建：</label>
+						<input name="yiErCengWeiJian" type="text" class="number"  size="15" value="0" />
+					</p>
+					
+					<p>
+						<label>三层及以上：</label>
+						<input name="sanCengJiYiShang" type="text"  class="number" size="15" value="0" />
+					</p>
+					
+					<p>
+						<label>办公用房：</label>
+						<input name="banGongYongFang" type="text" class="number"  size="15" value="0" />
+					</p>
+					
+					<p>
+						<label>成套住宅：</label>
+						<input name="chenTaoZhuZhai" type="text"  class="number" size="15" value="0" />
+					</p>
+				
+				<p>
+					<label>砖木结构（㎡）：</label>
+					<input name="zhuanMuJieGou" type="text"  class="number" size="15" value="0" />
+				</p>
+				
+				<p>
+					<label>简易房（㎡）：</label>
+					<input name="jianYiFang" type="text" class="number"  size="15" value="0" />
+				</p>
+				
+				<p>
+					<label>简易棚（㎡）：</label>
+					<input name="jianYiPeng" type="text" class="number"  size="15" value="0" />
+				</p>
+				
+				<p>
+					<label>地下室（㎡）：</label>
+					<input name="diXiaShi" type="text"  class="number" size="15" value="0" />
+				</p>
+				
+				<p>
+					<label>钢结构（㎡）：</label>
+					<input name="gangJieGou" type="text"  class="number" size="15" value="0" />
+				</p>
+				
+				<p>
+					<label>生产经营用房（㎡）：</label>
+					<input name="shengChanYongFang" type="text"  class="number" size="15" value="0" />
+				</p>
+			</fieldset>			
+			<fieldset>
+				<legend>附属物</legend>
+			<p>
+				<label>围墙(M)：</label>
+				<input name="weiQiang" type="text" class="number"  size="15" value="0" />
+			</p>
+			
+			<p>
+				<label>门楼(个)：</label>
+				<input name="menLou" type="text"  class="number" size="15" value="0" />
+			</p>
+			
+			<p>
+				<label>水泥地坪：</label>
+				<input name="shuiNiDiPing" type="text"  class="number" size="15" value="0" />
+			</p>
+			
+			<p>
+				<label>砖地坪：</label>
+				<input name="zhuanDiPing" type="text"  class="number" size="15" value="0" />
+			</p>
+			
+			<p>
+				<label>树木（棵）：</label>
+				<input name="shuMu" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>电话  （部）：</label>
+				<input name="dianHua" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>宽带 （部）：</label>
+				<input name="kuanDai" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>有线电视（座）：</label>
+				<input name="youXianDianShi" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>沼气  天然气（户）：</label>
+				<input name="zhaoQiTianRanQi" type="text" size="15" class="number"  />
+			</p>
+			
+			<p>
+				<label>水池（个）：</label>
+				<input name="shuiChi" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>三相电（户）：</label>
+				<input name="sanXiangDian" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>空调（台）：</label>
+				<input name="kongTiao" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>压井（眼）：</label>
+				<input name="yaJing" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>泵井（眼）：</label>
+				<input name="bangJing" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>无塔（眼）：</label>
+				<input name="wuTaJing" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>机井（眼）：</label>
+				<input name="jiJing" type="text" size="15" class="number"  value="0"/>
+			</p>
+			</fieldset>
+			<fieldset>
+				<legend>装修情况</legend>
+			
+			<p>
+				<label>木地板（㎡）：</label>
+				<input name="muDiBan" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>地板砖（㎡）：</label>
+				<input name="diBanZhuan" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>吊顶(㎡)：</label>
+				<input name="diaoding" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>门窗套(个)：</label>
+				<input name="menchuangtao" type="text" size="15" class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>座便(个)：</label>
+				<input name="zuobian" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>浴盆(个)：</label>
+				<input name="yupen" type="text" size="15" class="number"  value="0"/>
+			</p>
+			
+			<p>
+				<label>蹲便(个)：</label>
+				<input name="dunbian" type="text" size="15" class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>面盆(个)：</label>
+				<input name="mianpen" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>瓷砖(㎡)：</label>
+				<input name="cizhuan" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>木隔断（㎡）：</label>
+				<input name="mugeduan" type="text" size="15" class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>铝合金隔断（㎡）：</label>
+				<input name="lvhejingeduan" type="text" size="15"  class="number" value="0" />
+			</p>
+			
+			<p>
+				<label>木墙裙（㎡）：</label>
+				<input name="muqiangqun" type="text" size="15"  class="number" value="0" />
+			</p>
+			</fieldset>
+			
+			<p>
+				<label>备注：</label>
+				<input name="" type="text" size="15"/>
+			</p>
+			
+			
+			</div>
+			<div class="formBar">
+				<ul>
+					<!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+					<li><div class="buttonActive">
+							<div class="buttonContent">
+								<button type="submit">保存</button>
+							</div>
+						</div></li>
+					<li>
+						<div class="button">
+							<div class="buttonContent">
+								<button type="button" class="close">取消</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</form>
+		
+		
+	</div>
+</body>
+</html>

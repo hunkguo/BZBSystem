@@ -9,5 +9,6 @@
   -->
   <mappers >
     <mapper resource="mapper/UserMapper.xml" />
+    <mapper resource="mapper/yuSuanJiChuShuJuMapper.xml" />
   </mappers>
 </configuration>

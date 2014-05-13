@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50617
+Source Server         : mysql-win
+Source Server Version : 50614
 Source Host           : localhost:3306
 Source Database       : bzbsystem
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2014-05-13 17:27:12
+Date: 2014-05-13 23:43:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `user` (
   `name` varchar(20) DEFAULT NULL COMMENT '姓名',
   `del` varchar(1) DEFAULT NULL COMMENT '0/1,1:已删',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -40,6 +40,13 @@ INSERT INTO `user` VALUES ('6', 'gfjfgj', '1', '1', '0');
 INSERT INTO `user` VALUES ('7', 'ds', 'aaa', 'as', '0');
 INSERT INTO `user` VALUES ('8', 'ds', 'aaa', 'as', '0');
 INSERT INTO `user` VALUES ('9', '111', 'a', '111', '0');
+INSERT INTO `user` VALUES ('10', null, null, 'sf', null);
+INSERT INTO `user` VALUES ('11', null, null, 'dfh', null);
+INSERT INTO `user` VALUES ('12', null, null, 'asd', null);
+INSERT INTO `user` VALUES ('13', null, null, 'dgsd', null);
+INSERT INTO `user` VALUES ('14', null, null, 'asdasd', null);
+INSERT INTO `user` VALUES ('15', null, null, 'asd', null);
+INSERT INTO `user` VALUES ('16', null, null, 'asd', null);
 
 -- ----------------------------
 -- Table structure for yusuan_jichushuju
@@ -92,8 +99,9 @@ CREATE TABLE `yusuan_jichushuju` (
   `lvHeJinGeDuan` float(255,0) DEFAULT NULL,
   `muQiangQun` float(255,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yusuan_jichushuju
 -- ----------------------------
+INSERT INTO `yusuan_jichushuju` VALUES ('1', 'sdgsdg', 'sdg', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '12', null);

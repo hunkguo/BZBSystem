@@ -16,9 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import cn.hunk.model.User;
-import cn.hunk.model.yuSuanJiChuShuJu;
-import cn.hunk.dao.yuSuanJiChuShuJuMapper;
-import cn.hunk.service.yuSuanJiChuShuJuService;
+import cn.hunk.controller.BaseController;
+import cn.hunk.controller.IndexController;
+import cn.hunk.dao.UserMapper;
+import cn.hunk.service.;
 import cn.hunk.util.StaticString;
 
 import org.springframework.ui.Model;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller  
 @RequestMapping("/yusuanjichushuju")  
-public class YuSuanController extends BaseController {
+public class YuSuanJiChuShuJUController extends BaseController {
 	@Autowired
 	private yuSuanJiChuShuJuService yuSuanJiChuShuJuService;
 	
@@ -57,35 +58,18 @@ public class YuSuanController extends BaseController {
 			map.put("orderDirection", orderDirection);
 			request.setAttribute("orderDirection", orderDirection);
 		}
-		int totalCount = yuSuanJiChuShuJuService.queryCount(map);
+		int totalCount = yuSuanjiChuShuJuService.queryUserCount(map);
 
 		if (totalCount > 0) {
 			map.put("start", (pageNum - 1) * 3);
 			map.put("limit", 3);
-			model.addAttribute("yusuanjichushujuList", yuSuanJiChuShuJuService.queryAll(map));
+			model.addAttribute("yusuanjichushujuList", yuSuanjiChuShuJuService.queryUser(map));
 		}
 		model.addAttribute("pageNum",pageNum);
 		model.addAttribute("totalCount",totalCount);
 		
 		return getViewPath("/index");
 	}	
-	
 
-	// 添加数据
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String add(Model model) {
-		return getViewPath("/add");
-	}	
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("yusuanjichushuju") yuSuanJiChuShuJu yusuanjichushuju, Model model) {
-		log.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		log.debug(yusuanjichushuju.getName());
-		log.debug(String.valueOf(yusuanjichushuju.getLvhejingeduan()));
-		log.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		if (!yuSuanJiChuShuJuService.add(yusuanjichushuju)) {
-			return ajaxForwardError("增加失败");
-		}
-		return ajaxForwardSuccess("增加成功!");
-	}
 
 }

@@ -67,7 +67,7 @@ public class UserController extends BaseController {
 		}
 		
 
-		// 跳到登录页面
+		// 跳到列表页
 		@RequestMapping(value = "")
 		public String index(Model model, HttpServletRequest request) {
 			HashMap<String, Object> map = new HashMap<String, Object>();

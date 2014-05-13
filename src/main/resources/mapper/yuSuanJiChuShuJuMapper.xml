@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hunk.dao.yuSuanJiChuShuJuMapper" >
+  <resultMap id="BaseResultMap" type="cn.hunk.model.yuSuanJiChuShuJu" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="huShu" property="hushu" jdbcType="INTEGER" />
+    <result column="renKou" property="renkou" jdbcType="INTEGER" />
+    <result column="zhaiDiJiMianJi" property="zhaidijimianji" jdbcType="REAL" />
+    <result column="yiErCengYiJian" property="yiercengyijian" jdbcType="REAL" />
+    <result column="yiErCengWeiJian" property="yiercengweijian" jdbcType="REAL" />
+    <result column="sanCengJiYiShang" property="sancengjiyishang" jdbcType="REAL" />
+    <result column="banGongYongFang" property="bangongyongfang" jdbcType="REAL" />
+    <result column="chenTaoZhuZhai" property="chentaozhuzhai" jdbcType="REAL" />
+    <result column="zhuanMuJieGou" property="zhuanmujiegou" jdbcType="REAL" />
+    <result column="jianYiFang" property="jianyifang" jdbcType="REAL" />
+    <result column="jianYiPeng" property="jianyipeng" jdbcType="REAL" />
+    <result column="diXiaShi" property="dixiashi" jdbcType="REAL" />
+    <result column="gangJieGou" property="gangjiegou" jdbcType="REAL" />
+    <result column="shengChanYongFang" property="shengchanyongfang" jdbcType="REAL" />
+    <result column="weiQiang" property="weiqiang" jdbcType="REAL" />
+    <result column="menLou" property="menlou" jdbcType="REAL" />
+    <result column="shuiNiDiPing" property="shuinidiping" jdbcType="REAL" />
+    <result column="zhuanDiPing" property="zhuandiping" jdbcType="REAL" />
+    <result column="shuMu" property="shumu" jdbcType="REAL" />
+    <result column="dianHua" property="dianhua" jdbcType="REAL" />
+    <result column="kuanDai" property="kuandai" jdbcType="REAL" />
+    <result column="youXianDianShi" property="youxiandianshi" jdbcType="REAL" />
+    <result column="zhaoQiTianRanQi" property="zhaoqitianranqi" jdbcType="REAL" />
+    <result column="shuiChi" property="shuichi" jdbcType="REAL" />
+    <result column="sanXiangDian" property="sanxiangdian" jdbcType="REAL" />
+    <result column="kongTiao" property="kongtiao" jdbcType="REAL" />
+    <result column="yaJing" property="yajing" jdbcType="REAL" />
+    <result column="bangJing" property="bangjing" jdbcType="REAL" />
+    <result column="wuTaJing" property="wutajing" jdbcType="REAL" />
+    <result column="jiJing" property="jijing" jdbcType="REAL" />
+    <result column="muDiBan" property="mudiban" jdbcType="REAL" />
+    <result column="diBanZhuan" property="dibanzhuan" jdbcType="REAL" />
+    <result column="diaoDing" property="diaoding" jdbcType="REAL" />
+    <result column="menChuangTao" property="menchuangtao" jdbcType="REAL" />
+    <result column="zuoBian" property="zuobian" jdbcType="REAL" />
+    <result column="yuPen" property="yupen" jdbcType="REAL" />
+    <result column="dunBian" property="dunbian" jdbcType="REAL" />
+    <result column="mianPen" property="mianpen" jdbcType="REAL" />
+    <result column="ciZhuan" property="cizhuan" jdbcType="REAL" />
+    <result column="muGeDuan" property="mugeduan" jdbcType="REAL" />
+    <result column="lvHeJinGeDuan" property="lvhejingeduan" jdbcType="REAL" />
+    <result column="muQiangQun" property="muqiangqun" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, address, huShu, renKou, zhaiDiJiMianJi, yiErCengYiJian, yiErCengWeiJian, 
+    sanCengJiYiShang, banGongYongFang, chenTaoZhuZhai, zhuanMuJieGou, jianYiFang, jianYiPeng, 
+    diXiaShi, gangJieGou, shengChanYongFang, weiQiang, menLou, shuiNiDiPing, zhuanDiPing, 
+    shuMu, dianHua, kuanDai, youXianDianShi, zhaoQiTianRanQi, shuiChi, sanXiangDian, 
+    kongTiao, yaJing, bangJing, wuTaJing, jiJing, muDiBan, diBanZhuan, diaoDing, menChuangTao, 
+    zuoBian, yuPen, dunBian, mianPen, ciZhuan, muGeDuan, lvHeJinGeDuan, muQiangQun
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yusuan_jichushuju
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yusuan_jichushuju
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.hunk.model.yuSuanJiChuShuJu" >
+    insert into yusuan_jichushuju (id, name, address, 
+      huShu, renKou, zhaiDiJiMianJi, 
+      yiErCengYiJian, yiErCengWeiJian, sanCengJiYiShang, 
+      banGongYongFang, chenTaoZhuZhai, zhuanMuJieGou, 
+      jianYiFang, jianYiPeng, diXiaShi, 
+      gangJieGou, shengChanYongFang, weiQiang, 
+      menLou, shuiNiDiPing, zhuanDiPing, 
+      shuMu, dianHua, kuanDai, youXianDianShi, 
+      zhaoQiTianRanQi, shuiChi, sanXiangDian, 
+      kongTiao, yaJing, bangJing, 
+      wuTaJing, jiJing, muDiBan, diBanZhuan, 
+      diaoDing, menChuangTao, zuoBian, 
+      yuPen, dunBian, mianPen, ciZhuan, 
+      muGeDuan, lvHeJinGeDuan, muQiangQun
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{hushu,jdbcType=INTEGER}, #{renkou,jdbcType=INTEGER}, #{zhaidijimianji,jdbcType=REAL}, 
+      #{yiercengyijian,jdbcType=REAL}, #{yiercengweijian,jdbcType=REAL}, #{sancengjiyishang,jdbcType=REAL}, 
+      #{bangongyongfang,jdbcType=REAL}, #{chentaozhuzhai,jdbcType=REAL}, #{zhuanmujiegou,jdbcType=REAL}, 
+      #{jianyifang,jdbcType=REAL}, #{jianyipeng,jdbcType=REAL}, #{dixiashi,jdbcType=REAL}, 
+      #{gangjiegou,jdbcType=REAL}, #{shengchanyongfang,jdbcType=REAL}, #{weiqiang,jdbcType=REAL}, 
+      #{menlou,jdbcType=REAL}, #{shuinidiping,jdbcType=REAL}, #{zhuandiping,jdbcType=REAL}, 
+      #{shumu,jdbcType=REAL}, #{dianhua,jdbcType=REAL}, #{kuandai,jdbcType=REAL}, #{youxiandianshi,jdbcType=REAL}, 
+      #{zhaoqitianranqi,jdbcType=REAL}, #{shuichi,jdbcType=REAL}, #{sanxiangdian,jdbcType=REAL}, 
+      #{kongtiao,jdbcType=REAL}, #{yajing,jdbcType=REAL}, #{bangjing,jdbcType=REAL}, 
+      #{wutajing,jdbcType=REAL}, #{jijing,jdbcType=REAL}, #{mudiban,jdbcType=REAL}, #{dibanzhuan,jdbcType=REAL}, 
+      #{diaoding,jdbcType=REAL}, #{menchuangtao,jdbcType=REAL}, #{zuobian,jdbcType=REAL}, 
+      #{yupen,jdbcType=REAL}, #{dunbian,jdbcType=REAL}, #{mianpen,jdbcType=REAL}, #{cizhuan,jdbcType=REAL}, 
+      #{mugeduan,jdbcType=REAL}, #{lvhejingeduan,jdbcType=REAL}, #{muqiangqun,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.hunk.model.yuSuanJiChuShuJu" >
+    insert into yusuan_jichushuju
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="hushu != null" >
+        huShu,
+      </if>
+      <if test="renkou != null" >
+        renKou,
+      </if>
+      <if test="zhaidijimianji != null" >
+        zhaiDiJiMianJi,
+      </if>
+      <if test="yiercengyijian != null" >
+        yiErCengYiJian,
+      </if>
+      <if test="yiercengweijian != null" >
+        yiErCengWeiJian,
+      </if>
+      <if test="sancengjiyishang != null" >
+        sanCengJiYiShang,
+      </if>
+      <if test="bangongyongfang != null" >
+        banGongYongFang,
+      </if>
+      <if test="chentaozhuzhai != null" >
+        chenTaoZhuZhai,
+      </if>
+      <if test="zhuanmujiegou != null" >
+        zhuanMuJieGou,
+      </if>
+      <if test="jianyifang != null" >
+        jianYiFang,
+      </if>
+      <if test="jianyipeng != null" >
+        jianYiPeng,
+      </if>
+      <if test="dixiashi != null" >
+        diXiaShi,
+      </if>
+      <if test="gangjiegou != null" >
+        gangJieGou,
+      </if>
+      <if test="shengchanyongfang != null" >
+        shengChanYongFang,
+      </if>
+      <if test="weiqiang != null" >
+        weiQiang,
+      </if>
+      <if test="menlou != null" >
+        menLou,
+      </if>
+      <if test="shuinidiping != null" >
+        shuiNiDiPing,
+      </if>
+      <if test="zhuandiping != null" >
+        zhuanDiPing,
+      </if>
+      <if test="shumu != null" >
+        shuMu,
+      </if>
+      <if test="dianhua != null" >
+        dianHua,
+      </if>
+      <if test="kuandai != null" >
+        kuanDai,
+      </if>
+      <if test="youxiandianshi != null" >
+        youXianDianShi,
+      </if>
+      <if test="zhaoqitianranqi != null" >
+        zhaoQiTianRanQi,
+      </if>
+      <if test="shuichi != null" >
+        shuiChi,
+      </if>
+      <if test="sanxiangdian != null" >
+        sanXiangDian,
+      </if>
+      <if test="kongtiao != null" >
+        kongTiao,
+      </if>
+      <if test="yajing != null" >
+        yaJing,
+      </if>
+      <if test="bangjing != null" >
+        bangJing,
+      </if>
+      <if test="wutajing != null" >
+        wuTaJing,
+      </if>
+      <if test="jijing != null" >
+        jiJing,
+      </if>
+      <if test="mudiban != null" >
+        muDiBan,
+      </if>
+      <if test="dibanzhuan != null" >
+        diBanZhuan,
+      </if>
+      <if test="diaoding != null" >
+        diaoDing,
+      </if>
+      <if test="menchuangtao != null" >
+        menChuangTao,
+      </if>
+      <if test="zuobian != null" >
+        zuoBian,
+      </if>
+      <if test="yupen != null" >
+        yuPen,
+      </if>
+      <if test="dunbian != null" >
+        dunBian,
+      </if>
+      <if test="mianpen != null" >
+        mianPen,
+      </if>
+      <if test="cizhuan != null" >
+        ciZhuan,
+      </if>
+      <if test="mugeduan != null" >
+        muGeDuan,
+      </if>
+      <if test="lvhejingeduan != null" >
+        lvHeJinGeDuan,
+      </if>
+      <if test="muqiangqun != null" >
+        muQiangQun,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="hushu != null" >
+        #{hushu,jdbcType=INTEGER},
+      </if>
+      <if test="renkou != null" >
+        #{renkou,jdbcType=INTEGER},
+      </if>
+      <if test="zhaidijimianji != null" >
+        #{zhaidijimianji,jdbcType=REAL},
+      </if>
+      <if test="yiercengyijian != null" >
+        #{yiercengyijian,jdbcType=REAL},
+      </if>
+      <if test="yiercengweijian != null" >
+        #{yiercengweijian,jdbcType=REAL},
+      </if>
+      <if test="sancengjiyishang != null" >
+        #{sancengjiyishang,jdbcType=REAL},
+      </if>
+      <if test="bangongyongfang != null" >
+        #{bangongyongfang,jdbcType=REAL},
+      </if>
+      <if test="chentaozhuzhai != null" >
+        #{chentaozhuzhai,jdbcType=REAL},
+      </if>
+      <if test="zhuanmujiegou != null" >
+        #{zhuanmujiegou,jdbcType=REAL},
+      </if>
+      <if test="jianyifang != null" >
+        #{jianyifang,jdbcType=REAL},
+      </if>
+      <if test="jianyipeng != null" >
+        #{jianyipeng,jdbcType=REAL},
+      </if>
+      <if test="dixiashi != null" >
+        #{dixiashi,jdbcType=REAL},
+      </if>
+      <if test="gangjiegou != null" >
+        #{gangjiegou,jdbcType=REAL},
+      </if>
+      <if test="shengchanyongfang != null" >
+        #{shengchanyongfang,jdbcType=REAL},
+      </if>
+      <if test="weiqiang != null" >
+        #{weiqiang,jdbcType=REAL},
+      </if>
+      <if test="menlou != null" >
+        #{menlou,jdbcType=REAL},
+      </if>
+      <if test="shuinidiping != null" >
+        #{shuinidiping,jdbcType=REAL},
+      </if>
+      <if test="zhuandiping != null" >
+        #{zhuandiping,jdbcType=REAL},
+      </if>
+      <if test="shumu != null" >
+        #{shumu,jdbcType=REAL},
+      </if>
+      <if test="dianhua != null" >
+        #{dianhua,jdbcType=REAL},
+      </if>
+      <if test="kuandai != null" >
+        #{kuandai,jdbcType=REAL},
+      </if>
+      <if test="youxiandianshi != null" >
+        #{youxiandianshi,jdbcType=REAL},
+      </if>
+      <if test="zhaoqitianranqi != null" >
+        #{zhaoqitianranqi,jdbcType=REAL},
+      </if>
+      <if test="shuichi != null" >
+        #{shuichi,jdbcType=REAL},
+      </if>
+      <if test="sanxiangdian != null" >
+        #{sanxiangdian,jdbcType=REAL},
+      </if>
+      <if test="kongtiao != null" >
+        #{kongtiao,jdbcType=REAL},
+      </if>
+      <if test="yajing != null" >
+        #{yajing,jdbcType=REAL},
+      </if>
+      <if test="bangjing != null" >
+        #{bangjing,jdbcType=REAL},
+      </if>
+      <if test="wutajing != null" >
+        #{wutajing,jdbcType=REAL},
+      </if>
+      <if test="jijing != null" >
+        #{jijing,jdbcType=REAL},
+      </if>
+      <if test="mudiban != null" >
+        #{mudiban,jdbcType=REAL},
+      </if>
+      <if test="dibanzhuan != null" >
+        #{dibanzhuan,jdbcType=REAL},
+      </if>
+      <if test="diaoding != null" >
+        #{diaoding,jdbcType=REAL},
+      </if>
+      <if test="menchuangtao != null" >
+        #{menchuangtao,jdbcType=REAL},
+      </if>
+      <if test="zuobian != null" >
+        #{zuobian,jdbcType=REAL},
+      </if>
+      <if test="yupen != null" >
+        #{yupen,jdbcType=REAL},
+      </if>
+      <if test="dunbian != null" >
+        #{dunbian,jdbcType=REAL},
+      </if>
+      <if test="mianpen != null" >
+        #{mianpen,jdbcType=REAL},
+      </if>
+      <if test="cizhuan != null" >
+        #{cizhuan,jdbcType=REAL},
+      </if>
+      <if test="mugeduan != null" >
+        #{mugeduan,jdbcType=REAL},
+      </if>
+      <if test="lvhejingeduan != null" >
+        #{lvhejingeduan,jdbcType=REAL},
+      </if>
+      <if test="muqiangqun != null" >
+        #{muqiangqun,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hunk.model.yuSuanJiChuShuJu" >
+    update yusuan_jichushuju
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="hushu != null" >
+        huShu = #{hushu,jdbcType=INTEGER},
+      </if>
+      <if test="renkou != null" >
+        renKou = #{renkou,jdbcType=INTEGER},
+      </if>
+      <if test="zhaidijimianji != null" >
+        zhaiDiJiMianJi = #{zhaidijimianji,jdbcType=REAL},
+      </if>
+      <if test="yiercengyijian != null" >
+        yiErCengYiJian = #{yiercengyijian,jdbcType=REAL},
+      </if>
+      <if test="yiercengweijian != null" >
+        yiErCengWeiJian = #{yiercengweijian,jdbcType=REAL},
+      </if>
+      <if test="sancengjiyishang != null" >
+        sanCengJiYiShang = #{sancengjiyishang,jdbcType=REAL},
+      </if>
+      <if test="bangongyongfang != null" >
+        banGongYongFang = #{bangongyongfang,jdbcType=REAL},
+      </if>
+      <if test="chentaozhuzhai != null" >
+        chenTaoZhuZhai = #{chentaozhuzhai,jdbcType=REAL},
+      </if>
+      <if test="zhuanmujiegou != null" >
+        zhuanMuJieGou = #{zhuanmujiegou,jdbcType=REAL},
+      </if>
+      <if test="jianyifang != null" >
+        jianYiFang = #{jianyifang,jdbcType=REAL},
+      </if>
+      <if test="jianyipeng != null" >
+        jianYiPeng = #{jianyipeng,jdbcType=REAL},
+      </if>
+      <if test="dixiashi != null" >
+        diXiaShi = #{dixiashi,jdbcType=REAL},
+      </if>
+      <if test="gangjiegou != null" >
+        gangJieGou = #{gangjiegou,jdbcType=REAL},
+      </if>
+      <if test="shengchanyongfang != null" >
+        shengChanYongFang = #{shengchanyongfang,jdbcType=REAL},
+      </if>
+      <if test="weiqiang != null" >
+        weiQiang = #{weiqiang,jdbcType=REAL},
+      </if>
+      <if test="menlou != null" >
+        menLou = #{menlou,jdbcType=REAL},
+      </if>
+      <if test="shuinidiping != null" >
+        shuiNiDiPing = #{shuinidiping,jdbcType=REAL},
+      </if>
+      <if test="zhuandiping != null" >
+        zhuanDiPing = #{zhuandiping,jdbcType=REAL},
+      </if>
+      <if test="shumu != null" >
+        shuMu = #{shumu,jdbcType=REAL},
+      </if>
+      <if test="dianhua != null" >
+        dianHua = #{dianhua,jdbcType=REAL},
+      </if>
+      <if test="kuandai != null" >
+        kuanDai = #{kuandai,jdbcType=REAL},
+      </if>
+      <if test="youxiandianshi != null" >
+        youXianDianShi = #{youxiandianshi,jdbcType=REAL},
+      </if>
+      <if test="zhaoqitianranqi != null" >
+        zhaoQiTianRanQi = #{zhaoqitianranqi,jdbcType=REAL},
+      </if>
+      <if test="shuichi != null" >
+        shuiChi = #{shuichi,jdbcType=REAL},
+      </if>
+      <if test="sanxiangdian != null" >
+        sanXiangDian = #{sanxiangdian,jdbcType=REAL},
+      </if>
+      <if test="kongtiao != null" >
+        kongTiao = #{kongtiao,jdbcType=REAL},
+      </if>
+      <if test="yajing != null" >
+        yaJing = #{yajing,jdbcType=REAL},
+      </if>
+      <if test="bangjing != null" >
+        bangJing = #{bangjing,jdbcType=REAL},
+      </if>
+      <if test="wutajing != null" >
+        wuTaJing = #{wutajing,jdbcType=REAL},
+      </if>
+      <if test="jijing != null" >
+        jiJing = #{jijing,jdbcType=REAL},
+      </if>
+      <if test="mudiban != null" >
+        muDiBan = #{mudiban,jdbcType=REAL},
+      </if>
+      <if test="dibanzhuan != null" >
+        diBanZhuan = #{dibanzhuan,jdbcType=REAL},
+      </if>
+      <if test="diaoding != null" >
+        diaoDing = #{diaoding,jdbcType=REAL},
+      </if>
+      <if test="menchuangtao != null" >
+        menChuangTao = #{menchuangtao,jdbcType=REAL},
+      </if>
+      <if test="zuobian != null" >
+        zuoBian = #{zuobian,jdbcType=REAL},
+      </if>
+      <if test="yupen != null" >
+        yuPen = #{yupen,jdbcType=REAL},
+      </if>
+      <if test="dunbian != null" >
+        dunBian = #{dunbian,jdbcType=REAL},
+      </if>
+      <if test="mianpen != null" >
+        mianPen = #{mianpen,jdbcType=REAL},
+      </if>
+      <if test="cizhuan != null" >
+        ciZhuan = #{cizhuan,jdbcType=REAL},
+      </if>
+      <if test="mugeduan != null" >
+        muGeDuan = #{mugeduan,jdbcType=REAL},
+      </if>
+      <if test="lvhejingeduan != null" >
+        lvHeJinGeDuan = #{lvhejingeduan,jdbcType=REAL},
+      </if>
+      <if test="muqiangqun != null" >
+        muQiangQun = #{muqiangqun,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hunk.model.yuSuanJiChuShuJu" >
+    update yusuan_jichushuju
+    set name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      huShu = #{hushu,jdbcType=INTEGER},
+      renKou = #{renkou,jdbcType=INTEGER},
+      zhaiDiJiMianJi = #{zhaidijimianji,jdbcType=REAL},
+      yiErCengYiJian = #{yiercengyijian,jdbcType=REAL},
+      yiErCengWeiJian = #{yiercengweijian,jdbcType=REAL},
+      sanCengJiYiShang = #{sancengjiyishang,jdbcType=REAL},
+      banGongYongFang = #{bangongyongfang,jdbcType=REAL},
+      chenTaoZhuZhai = #{chentaozhuzhai,jdbcType=REAL},
+      zhuanMuJieGou = #{zhuanmujiegou,jdbcType=REAL},
+      jianYiFang = #{jianyifang,jdbcType=REAL},
+      jianYiPeng = #{jianyipeng,jdbcType=REAL},
+      diXiaShi = #{dixiashi,jdbcType=REAL},
+      gangJieGou = #{gangjiegou,jdbcType=REAL},
+      shengChanYongFang = #{shengchanyongfang,jdbcType=REAL},
+      weiQiang = #{weiqiang,jdbcType=REAL},
+      menLou = #{menlou,jdbcType=REAL},
+      shuiNiDiPing = #{shuinidiping,jdbcType=REAL},
+      zhuanDiPing = #{zhuandiping,jdbcType=REAL},
+      shuMu = #{shumu,jdbcType=REAL},
+      dianHua = #{dianhua,jdbcType=REAL},
+      kuanDai = #{kuandai,jdbcType=REAL},
+      youXianDianShi = #{youxiandianshi,jdbcType=REAL},
+      zhaoQiTianRanQi = #{zhaoqitianranqi,jdbcType=REAL},
+      shuiChi = #{shuichi,jdbcType=REAL},
+      sanXiangDian = #{sanxiangdian,jdbcType=REAL},
+      kongTiao = #{kongtiao,jdbcType=REAL},
+      yaJing = #{yajing,jdbcType=REAL},
+      bangJing = #{bangjing,jdbcType=REAL},
+      wuTaJing = #{wutajing,jdbcType=REAL},
+      jiJing = #{jijing,jdbcType=REAL},
+      muDiBan = #{mudiban,jdbcType=REAL},
+      diBanZhuan = #{dibanzhuan,jdbcType=REAL},
+      diaoDing = #{diaoding,jdbcType=REAL},
+      menChuangTao = #{menchuangtao,jdbcType=REAL},
+      zuoBian = #{zuobian,jdbcType=REAL},
+      yuPen = #{yupen,jdbcType=REAL},
+      dunBian = #{dunbian,jdbcType=REAL},
+      mianPen = #{mianpen,jdbcType=REAL},
+      ciZhuan = #{cizhuan,jdbcType=REAL},
+      muGeDuan = #{mugeduan,jdbcType=REAL},
+      lvHeJinGeDuan = #{lvhejingeduan,jdbcType=REAL},
+      muQiangQun = #{muqiangqun,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+     <select id="queryCount" parameterType="Map" resultType="int">
+        select COUNT(*) from yusuan_jichushuju 
+    </select>
+    
+    
+    <select id="queryAll" parameterType="Map" resultType="cn.hunk.model.yuSuanJiChuShuJu">
+        select * from yusuan_jichushuju where 1=1       
+        <if test="name != null">
+        		AND name like '%#{name}%'
+        </if>      
+        LIMIT #{start},#{limit}
+    </select>
+</mapper>
