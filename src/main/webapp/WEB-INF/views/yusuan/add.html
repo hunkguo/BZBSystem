@@ -47,9 +47,9 @@
  function navTabAjaxDone(json){
        	 DWZ.ajaxDone(json);
      	 if (json.statusCode == DWZ.statusCode.ok){
-            if ("queryData"){ //æŠŠæŒ‡å®šnavTabé¡µé¢æ ‡è®°ä¸ºéœ€è¦â€œé‡æ–°è½½å…¥â€ã€‚æ³¨æ„navTabIdä¸èƒ½æ˜¯å½“å‰navTabé¡µé¢çš„
+            if ("queryData"){ //°ÑÖ¸¶¨navTabÒ³Ãæ±ê¼ÇÎªĞèÒª¡°ÖØĞÂÔØÈë¡±¡£×¢ÒânavTabId²»ÄÜÊÇµ±Ç°navTabÒ³ÃæµÄ
                   navTab.reloadFlag("page_list");
-            } else { //é‡æ–°è½½å…¥å½“å‰navTabé¡µé¢
+            } else { //ÖØĞÂÔØÈëµ±Ç°navTabÒ³Ãæ
                   navTabPageBreak();
             }
             if ("closeCurrent" == json.callbackType) {
@@ -68,9 +68,9 @@ function saveForm(obj){
 					return validateCallback(obj, navTabAjaxDone);
 			}
 			alert($("#password3").val());
-			alert("ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸åŒ¹é…");
+			alert("Á½´ÎÊäÈëµÄÃÜÂë²»Æ¥Åä");
 	}else{
-		alert("å¯†ç ä¸èƒ½ä¸ºç©º");
+		alert("ÃÜÂë²»ÄÜÎª¿Õ");
 	}
 	return false;
 }
@@ -83,7 +83,7 @@ function verifyUserName(){
 		type:'post',
 		success:function(resp){
 			if(!resp){
-				alert("ç”¨æˆ·åå·²å­˜åœ¨!");
+				alert("ÓÃ»§ÃûÒÑ´æÔÚ!");
 			}
 			flag = resp;
 		}
@@ -97,33 +97,32 @@ function verifyUserName(){
 		<form method="post" action="./user/add"
 			class="pageForm required-validate"
 			onsubmit="return saveForm(this);">
-			<div class="pageFormContent nowrap" layoutH="56">
-			
+			<div class="pageFormContent nowrap" layoutH="56">			
 			<p>
-				<label>å®¢ æˆ· å·ï¼š</label>
+				<label>¿Í »§ ºÅ£º</label>
 				<input name="sn" type="text" size="30" value="100001" readonly="readonly"/>
 			</p>
 				<dl id="title_div">
-					<dt>ç”¨æˆ·åï¼š</dt>
+					<dt>ÓÃ»§Ãû£º</dt>
 					<dd>
 						<input name="username" class="required" maxlength="25"
 							type="text"  id="username"  onblur="verifyUserName();"/>
 					</dd>
 				</dl>
 				<dl id="textDesc_div">
-					<dt>çœŸå®å§“åï¼š</dt>
+					<dt>ÕæÊµĞÕÃû£º</dt>
 					<dd>
 						<input  name="name" type="text" class="required" >
 					</dd>
 				</dl>
 				<dl id="textDesc_div">
-					<dt>å¯†ç ï¼š</dt>
+					<dt>ÃÜÂë£º</dt>
 					<dd>
 						<input  name="password" type="password" class="required" id="password1">
 					</dd>
 				</dl>
 				<dl id="textDesc_div">
-					<dt>ç¡®è®¤å¯†ç ï¼š</dt>
+					<dt>È·ÈÏÃÜÂë£º</dt>
 					<dd>
 						<input type="password" class="required"  id="password3">
 					</dd>
@@ -131,16 +130,15 @@ function verifyUserName(){
 			</div>
 			<div class="formBar">
 				<ul>
-					<!--<li><a class="buttonActive" href="javascript:;"><span>ä¿å­˜</span></a></li>-->
 					<li><div class="buttonActive">
 							<div class="buttonContent">
-								<button type="submit">ä¿å­˜</button>
+								<button type="submit">±£´æ</button>
 							</div>
 						</div></li>
 					<li>
 						<div class="button">
 							<div class="buttonContent">
-								<button type="button" class="close">å–æ¶ˆ</button>
+								<button type="button" class="close">È¡Ïû</button>
 							</div>
 						</div>
 					</li>

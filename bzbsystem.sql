@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql-win
-Source Server Version : 50614
+Source Server         : mysql
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : bzbsystem
 
 Target Server Type    : MYSQL
-Target Server Version : 50614
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-05-13 07:09:40
+Date: 2014-05-13 17:27:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,3 +40,60 @@ INSERT INTO `user` VALUES ('6', 'gfjfgj', '1', '1', '0');
 INSERT INTO `user` VALUES ('7', 'ds', 'aaa', 'as', '0');
 INSERT INTO `user` VALUES ('8', 'ds', 'aaa', 'as', '0');
 INSERT INTO `user` VALUES ('9', '111', 'a', '111', '0');
+
+-- ----------------------------
+-- Table structure for yusuan_jichushuju
+-- ----------------------------
+DROP TABLE IF EXISTS `yusuan_jichushuju`;
+CREATE TABLE `yusuan_jichushuju` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `huShu` int(6) DEFAULT NULL COMMENT '户数',
+  `renKou` int(6) DEFAULT NULL,
+  `zhaiDiJiMianJi` float(255,0) DEFAULT NULL,
+  `yiErCengYiJian` float(255,0) DEFAULT NULL,
+  `yiErCengWeiJian` float(255,0) DEFAULT NULL,
+  `sanCengJiYiShang` float(255,0) DEFAULT NULL,
+  `banGongYongFang` float(255,0) DEFAULT NULL,
+  `chenTaoZhuZhai` float(255,0) DEFAULT NULL,
+  `zhuanMuJieGou` float(255,0) DEFAULT NULL,
+  `jianYiFang` float(255,0) DEFAULT NULL,
+  `jianYiPeng` float(255,0) DEFAULT NULL,
+  `diXiaShi` float(255,0) DEFAULT NULL,
+  `gangJieGou` float(255,0) DEFAULT NULL,
+  `shengChanYongFang` float(255,0) DEFAULT NULL,
+  `weiQiang` float(255,0) DEFAULT NULL,
+  `menLou` float(255,0) DEFAULT NULL,
+  `shuiNiDiPing` float(255,0) DEFAULT NULL,
+  `zhuanDiPing` float(255,0) DEFAULT NULL,
+  `shuMu` float(255,0) DEFAULT NULL,
+  `dianHua` float(255,0) DEFAULT NULL,
+  `kuanDai` float(255,0) DEFAULT NULL,
+  `youXianDianShi` float(255,0) DEFAULT NULL,
+  `zhaoQiTianRanQi` float(255,0) DEFAULT NULL,
+  `shuiChi` float(255,0) DEFAULT NULL,
+  `sanXiangDian` float(255,0) DEFAULT NULL,
+  `kongTiao` float(255,0) DEFAULT NULL,
+  `yaJing` float(255,0) DEFAULT NULL,
+  `bangJing` float(255,0) DEFAULT NULL,
+  `wuTaJing` float(255,0) DEFAULT NULL,
+  `jiJing` float(255,0) DEFAULT NULL,
+  `muDiBan` float(255,0) DEFAULT NULL,
+  `diBanZhuan` float(255,0) DEFAULT NULL,
+  `diaoDing` float(255,0) DEFAULT NULL,
+  `menChuangTao` float(255,0) DEFAULT NULL,
+  `zuoBian` float(255,0) DEFAULT NULL,
+  `yuPen` float(255,0) DEFAULT NULL,
+  `dunBian` float(255,0) DEFAULT NULL,
+  `mianPen` float(255,0) DEFAULT NULL,
+  `ciZhuan` float(255,0) DEFAULT NULL,
+  `muGeDuan` float(255,0) DEFAULT NULL,
+  `lvHeJinGeDuan` float(255,0) DEFAULT NULL,
+  `muQiangQun` float(255,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yusuan_jichushuju
+-- ----------------------------
